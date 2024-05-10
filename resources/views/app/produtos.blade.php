@@ -1,6 +1,6 @@
 @extends('site.layouts.basico')
 
-@section('titulo', '')
+@section('titulo', 'Produtos')
 
 @section('conteudo')
     <div class="conteudo-pagina">
@@ -9,12 +9,16 @@
         </div>
 
         <div class="informacao-pagina">
-            <div class="contato-principal">
-                @component('site.layouts._components.form_contato', ['classe' => 'borda-preta'])
-                <p>A nossa equipe analisará a sua mensagem e retornaremos o mais brevemente possível</p>
-                <p>Nosso tempo médio de resposta é de 48 horas</p>
-                @endcomponent
-            </div>
+            <h2>Lista de Produtos</h2>
+            <ul>
+                @foreach($produtos as $produto)
+                <li>
+                    <strong>{{ $produto['nome'] }}</strong><br>
+                    <em>Descrição:</em> {{ $produto['descricao'] }}<br>
+                    <em>Preço:</em> {{ $produto['preco'] }}<br><br>
+                </li>
+                @endforeach
+            </ul>
         </div>
     </div>
 
